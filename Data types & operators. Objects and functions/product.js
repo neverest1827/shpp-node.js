@@ -1,4 +1,4 @@
-import { Review } from "./review";
+import { Review } from "./review.js";
 
 /**
  * Constructor for creating a product object
