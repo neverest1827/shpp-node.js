@@ -12,8 +12,8 @@ let reviews = [
 ];
 
 let products = [
-    new Product('1', 'test1', 'some description1', 450.5, 'some brand1', SIZES, 'S', 10, new Date('2023-7-19T23:10:00'), reviews, IMAGES),
-    new Product('2', 'test2', 'some description2', 50.8, 'some brand2', SIZES, 'M', 3, new Date('2023-8-19T08:20:55'), reviews, IMAGES),
+    new Product('1', 'test1', 'one some description1', 450.5, 'some brand1', SIZES, 'S', 10, new Date('2023-7-19T23:10:00'), reviews, IMAGES),
+    new Product('2', 'test2', 'oneSome description2', 50.8, 'some brand2', SIZES, 'M', 3, new Date('2023-8-19T08:20:55'), reviews, IMAGES),
     new Product('3', 'test3', 'some description3', 600.1, 'some brand3', SIZES, 'L', 8, new Date('2023-9-19T014:30:00'), reviews, IMAGES)
 ];
 
@@ -26,8 +26,35 @@ function getRating(serviceRating, priceRating, valueRating, qualitiRating){
     }
 }
 
+/**
+ * Searches for objects that contain the search text
+ * 
+ * @param {object[]} products 
+ * @param {string} searchText 
+ * @returns {object[]} the objects that contain the search text
+ */
 function searchProducts(products, searchText){
-    
+    let lastChar = searchText.charAt(searchText.length - 1);
+    if (lastChar === '*') searchText = searchText.substring(0, searchText.length - 1);
+    let result = [];
+
+    for(let product of products){
+        let description = product.getDescription();
+
+        if(lastChar !== '*'){
+            // Strict search
+            let words = description.split(' ');
+            for(let word of words){
+                if(word.includes(searchText) && word.length === searchText.length) {
+                    result.push(product);
+                }
+            }
+        } else {
+            if (description.includes(searchText)) result.push(product);
+        }
+    }
+
+    return result;
 }
 
 function sortProducts(products, sortRule){
@@ -67,3 +94,7 @@ console.log(firstProduct.getReviews().length);
 
 // Test getAveregeRating()
 console.log(firstProduct.getAveregeRating());
+
+//Test searchProducts()
+console.log(searchProducts(products, 'one*'));
+console.log(searchProducts(products, 'one'));

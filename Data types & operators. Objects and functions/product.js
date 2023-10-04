@@ -206,7 +206,7 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
             let keys = Object.keys(rating)
             for(let keyNumber = 0; keyNumber < keys.length; keyNumber++){
                 // Get the value for the key that we take from the key array
-                totalReviewScore += rating[keys[keyNumber]];
+                totalReviewScore += rating[ keys[keyNumber] ];
                 totalCount++;
             }
         }
