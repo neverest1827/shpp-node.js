@@ -121,12 +121,12 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
     /**
      * Returns the "review" object by the given key
      * 
-     * @param {string} id the key by which the search will be performed
+     * @param {string} reviewId the key by which the search will be performed
      * @returns {object} the object of the review that meets the requirements
      */
-    this.getReviewByID = function(id){
+    this.getReviewByID = function(reviewId){
         for(let review of this._reviews){
-            if(review.id === id) {
+            if(review.getId() === reviewId) {
                 return review
             };
         };
@@ -158,7 +158,7 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
      * @param {string} size the size to be deleted
      */
     this.deleteSize = function(size){
-        for(let index = 0; index < this._sizes.lenth; index++){
+        for(let index = 0; index < this._sizes.length; index++){
             if(size === this._sizes[index]){
                 this._sizes.splice(index, 1);
                 break;
@@ -176,18 +176,18 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
      * @param {object[]} rating the product rating
      */
     this.addReview = function(id, author, date, comment, rating){
-        this.reviews.push(new Review(id, author, date, comment, rating))
+        this._reviews.push(new Review(id, author, date, comment, rating))
     };
 
     /**
      * Deletes the "reviews" object from the "reviews" array by the specified key (ID)
      * 
-     * @param {string} id the review key
+     * @param {string} reviewId the review key
      */
-    this.deleteReview = function(id){
-        for(let index = 0; index < this._reviews.lenth; index++){
-            if (id === this._reviews[index].id){
-                reviews.splice(index, 1);
+    this.deleteReview = function(reviewId){
+        for(let index = 0; index < this._reviews.length; index++){
+            if (reviewId === this._reviews[index].getId()){
+                this._reviews.splice(index, 1);
             };
         };
     };
@@ -195,24 +195,22 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
     /**
      * Returns the average rating of the product
      * 
-     * @param {string} id the product key
      * @returns the average rating of the product
      */
-    this.getAveregeRating = function(id){
-        let review;
+    this.getAveregeRating = function(){
+        let totalCount = 0;
+        let totalReviewScore = 0;
 
-        for(let index = 0; index < this._reviews.lenth; index++){
-            if(this._reviews[index].id === id){
-                review = reviews[index];
-                break;
+        for(let review of this._reviews){
+            let rating = review.getRating();
+            let keys = Object.keys(rating)
+            for(let keyNumber = 0; keyNumber < keys.length; keyNumber++){
+                // Get the value for the key that we take from the key array
+                totalReviewScore += rating[keys[keyNumber]];
+                totalCount++;
             }
         }
-
-        let serviceRating = review.rating.service;
-        let servicePrice = review.rating.price;
-        let serviceValue = review.rating.value;
-        let serviceQuality = review.rating.quality;
-
-        return (serviceRating + servicePrice + serviceValue + serviceQuality) / review.lenth
+        
+        return totalReviewScore / totalCount;
     };
 }
