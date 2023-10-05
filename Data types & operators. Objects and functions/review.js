@@ -8,7 +8,7 @@ export function Review(id, author, date, comment, rating){
     // Getters and setters
 
     this.setId = function(newId){
-        this.id = newId
+        this._id = newId
     }
 
     this.getId = function(){
@@ -16,7 +16,7 @@ export function Review(id, author, date, comment, rating){
     }
 
     this.setAuthor = function(newAuthor){
-        this.author = newAuthor
+        this._author = newAuthor
     }
 
     this.getAuthor = function(){
@@ -24,7 +24,7 @@ export function Review(id, author, date, comment, rating){
     }
 
     this.setDate = function(newDate){
-        this.date = newDate
+        this._date = newDate
     }
 
     this.getDate = function(){
@@ -32,7 +32,7 @@ export function Review(id, author, date, comment, rating){
     }
 
     this.setComment = function(newComment){
-        this.comment = newComment
+        this._comment = newComment
     }
 
     this.getComment = function(){
@@ -40,7 +40,7 @@ export function Review(id, author, date, comment, rating){
     }
 
     this.setRating = function(newRating){
-        this.rating = newRating
+        this._rating = newRating
     }
 
     this.getRating = function(){
