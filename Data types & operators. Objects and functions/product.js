@@ -27,96 +27,97 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
     this._date = date;
     this._reviews = reviews;
     this._images = images;
+}
 
+Object.assign(Product.prototype, {
     // Getters and setters
-
-    this.setId = function(newId){
+    setId(newId){
         this._id = newId;
-    };
+    },
 
-    this.getId = function(){
+    getId(){
         return this._id;
-    };
+    },
 
-    this.setName = function(newName){
+    setName(newName){
         this._name = newName;
-    };
+    },
 
-    this.getName = function(){
+    getName(){
         return this._name;
-    };
+    },
 
-    this.setDescription = function(newDescription){
+    setDescription(newDescription){
         this._description = newDescription;
-    };
+    },
 
-    this.getDescription = function(){
+    getDescription(){
         return this._description;
-    };
+    },
 
-    this.setPrice = function(newPrice){
+    setPrice(newPrice){
         this._price = newPrice;
-    };
+    },
 
-    this.getPrice = function(){
+    getPrice(){
         return this._price;
-    };
+    },
 
-    this.setBrand = function(newBrand){
+    setBrand(newBrand){
         this._brand = newBrand;
-    };
+    },
 
-    this.getBrand = function(){
+    getBrand(){
         return this._brand;
-    };
+    },
 
-    this.setSizes = function(newSizes){
+    setSizes(newSizes){
         this._sizes = newSizes;
-    };
+    },
 
-    this.getSizes = function(){
+    getSizes(){
         return this._sizes;
-    };
+    },
 
-    this.setActiveSize = function(newActiveSize){
+    setActiveSize(newActiveSize){
         this._activeSize = newActiveSize;
-    };
+    },
 
-    this.getActiveSize = function(){
+    getActiveSize(){
         return this._activeSize;
-    };
+    },
 
-    this.setQuantity = function(newQuantity){
+    setQuantity(newQuantity){
         this._quantity = newQuantity;
-    };
+    },
 
-    this.getQuantity = function(){
+    getQuantity(){
         return this._quantity;
-    };
+    },
 
-    this.setDate = function(newDate){
+    setDate(newDate){
         this._date = newDate;
-    };
+    },
 
-    this.getDate = function(){
+    getDate(){
         return this._date;
-    };
+    },
 
-    this.setReviews = function(newReviews){
+    setReviews(newReviews){
         this._reviews = newReviews;
-    };
+    },
 
-    this.getReviews = function(){
+    getReviews(){
         return this._reviews;
-    };
+    },
 
-    this.setImages = function(newImage){
+    setImages(newImage){
         this._images = newImage;
-    };
+    },
 
-    this.getImages = function(){
+    getImages(){
         return this._images;
-    };
+    },
 
     /**
      * Returns the "review" object by the given key
@@ -124,13 +125,13 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
      * @param {string} reviewId the key by which the search will be performed
      * @returns the object of the review that meets the requirements
      */
-    this.getReviewByID = function(reviewId){
+    getReviewByID(reviewId){
         for(let review of this._reviews){
             if(review.getId() === reviewId) {
                 return review;
             };
         };
-    };
+    },
 
     /**
      * Returns the picture according to the passed parameter, if the parameter was not passed then the first picture from the array
@@ -138,33 +139,33 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
      * @param {number} numImage the number of the photo requested by the user
      * @returns image as string
      */
-    this.getImage = function(numImage){
+    getImage(numImage){
         if(numImage === undefined) return this._images[0];
         return this._images[numImage];
-    };
+    },
 
     /**
      * Adds a new value to the "sizes" array
      * 
      * @param {string} size the size to be added
      */
-    this.addSize = function(size){
+    addSize(size){
         this._sizes.push(size);
-    };
+    },
 
     /**
      * Deletes a value from the "sizes" array by the specified key
      * 
      * @param {string} size the size to be deleted
      */
-    this.deleteSize = function(size){
+    deleteSize(size){
         for(let index = 0; index < this._sizes.length; index++){
             if(size === this._sizes[index]){
                 this._sizes.splice(index, 1);
                 break;
             };
         };
-    };
+    },
 
     /**
      * Adds a "reviews" object to the "reviews" array
@@ -175,29 +176,29 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
      * @param {string} comment the review text
      * @param {object[]} rating the product rating
      */
-    this.addReview = function(id, author, date, comment, rating){
+    addReview(id, author, date, comment, rating){
         this._reviews.push(new Review(id, author, date, comment, rating));
-    };
+    },
 
     /**
      * Deletes the "reviews" object from the "reviews" array by the specified key (ID)
      * 
      * @param {string} reviewId the review key
      */
-    this.deleteReview = function(reviewId){
+    deleteReview(reviewId){
         for(let index = 0; index < this._reviews.length; index++){
             if (reviewId === this._reviews[index].getId()){
                 this._reviews.splice(index, 1);
             };
         };
-    };
+    },
 
     /**
      * Returns the average rating of the product
      * 
      * @returns the average rating of the product
      */
-    this.getAveregeRating = function(){
+    getAveregeRating(){
         let totalCount = 0;
         let totalReviewScore = 0;
 
@@ -212,5 +213,5 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
         }
         
         return totalReviewScore / totalCount;
-    };
-}
+    },
+})
