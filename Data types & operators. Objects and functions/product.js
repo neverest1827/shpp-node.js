@@ -1,4 +1,4 @@
-import { Review } from "./review.js";
+import { Review } from "./Review.js";
 
 /**
  * Constructor for creating a product object
@@ -31,103 +31,103 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
     // Getters and setters
 
     this.setId = function(newId){
-        this._id = newId
+        this._id = newId;
     };
 
     this.getId = function(){
-        return this._id
+        return this._id;
     };
 
     this.setName = function(newName){
-        this._name = newName
+        this._name = newName;
     };
 
     this.getName = function(){
-        return this._name
+        return this._name;
     };
 
     this.setDescription = function(newDescription){
-        this._description = newDescription
+        this._description = newDescription;
     };
 
     this.getDescription = function(){
-        return this._description
+        return this._description;
     };
 
     this.setPrice = function(newPrice){
-        this._price = newPrice
+        this._price = newPrice;
     };
 
     this.getPrice = function(){
-        return this._price
+        return this._price;
     };
 
     this.setBrand = function(newBrand){
-        this._brand = newBrand
+        this._brand = newBrand;
     };
 
     this.getBrand = function(){
-        return this._brand
+        return this._brand;
     };
 
     this.setSizes = function(newSizes){
-        this._sizes = newSizes
+        this._sizes = newSizes;
     };
 
     this.getSizes = function(){
-        return this._sizes
+        return this._sizes;
     };
 
     this.setActiveSize = function(newActiveSize){
-        this._activeSize = newActiveSize
+        this._activeSize = newActiveSize;
     };
 
     this.getActiveSize = function(){
-        return this._activeSize
+        return this._activeSize;
     };
 
     this.setQuantity = function(newQuantity){
-        this._quantity = newQuantity
+        this._quantity = newQuantity;
     };
 
     this.getQuantity = function(){
-        return this._quantity
+        return this._quantity;
     };
 
     this.setDate = function(newDate){
-        this._date = newDate
+        this._date = newDate;
     };
 
     this.getDate = function(){
-        return this._date
+        return this._date;
     };
 
     this.setReviews = function(newReviews){
-        this._reviews = newReviews
+        this._reviews = newReviews;
     };
 
     this.getReviews = function(){
-        return this._reviews
+        return this._reviews;
     };
 
     this.setImages = function(newImage){
-        this._images = newImage
+        this._images = newImage;
     };
 
     this.getImages = function(){
-        return this._images
+        return this._images;
     };
 
     /**
      * Returns the "review" object by the given key
      * 
      * @param {string} reviewId the key by which the search will be performed
-     * @returns {object} the object of the review that meets the requirements
+     * @returns the object of the review that meets the requirements
      */
     this.getReviewByID = function(reviewId){
         for(let review of this._reviews){
             if(review.getId() === reviewId) {
-                return review
+                return review;
             };
         };
     };
@@ -136,11 +136,11 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
      * Returns the picture according to the passed parameter, if the parameter was not passed then the first picture from the array
      * 
      * @param {number} numImage the number of the photo requested by the user
-     * @returns {string} image as string
+     * @returns image as string
      */
     this.getImage = function(numImage){
         if(numImage === undefined) return this._images[0];
-        return this._images[numImage]
+        return this._images[numImage];
     };
 
     /**
@@ -176,7 +176,7 @@ export function Product(id, name, description, price, brand, sizes, activeSize, 
      * @param {object[]} rating the product rating
      */
     this.addReview = function(id, author, date, comment, rating){
-        this._reviews.push(new Review(id, author, date, comment, rating))
+        this._reviews.push(new Review(id, author, date, comment, rating));
     };
 
     /**

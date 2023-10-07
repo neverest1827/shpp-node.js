@@ -1,11 +1,10 @@
-import { Product } from "./product.js";
-import { Review } from "./review.js";
+import { Product } from "./Product.js";
+import { Review } from "./Review.js";
 
 const SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const IMAGES = ['frontImg', 'leftImg', 'rightImg', 'backImg'];
 const REVIEW_ID = '1';
 const SORT_RULES = ['Price', 'Name', 'ID'];
-const TAB = '\t';
 
 let reviews = [
     new Review('1', 'Andrey', new Date('2023-12-17T03:24:00'), 'some comment1', setRating(5, 5, 5, 5)),
@@ -19,6 +18,15 @@ let products = [
     new Product('3', 'test1', 'some description3', 600.1, 'some brand3', SIZES, 'L', 8, new Date('2023-9-19T014:30:00'), reviews, IMAGES)
 ];
 
+/**
+ * Creates an array of ratings by criteria
+ * 
+ * @param {number} serviceRating quality assessment for service
+ * @param {number} priceRating quality assessment for price
+ * @param {number} valueRating quality assessment for value
+ * @param {number} qualitiRating quality assessment for qualiti
+ * @returns an array with scores based on criteria
+ */
 function setRating(serviceRating, priceRating, valueRating, qualitiRating){
     return {
         'service': serviceRating, 
@@ -92,52 +100,43 @@ function sortProducts(products, sortRule){
 
 
 // Tests
-// Test getReviewByID()
 console.log('Test getReviewByID():');
 let firstProduct = products[0];
 console.log(firstProduct.getReviewByID(REVIEW_ID));
 
-// Test getImage()
 console.log('Test getImage():');
 for(let image of firstProduct.getImages()){
     console.log(image);
 }
 
-// Test addSize()
 console.log('Test addSize():');
 console.log('First product sizes before - ' + firstProduct.getSizes());
 firstProduct.addSize('XXXL');
 console.log('First product sizes before - ' + firstProduct.getSizes());
 
-// Test deleteSize()
 console.log('Test deleteSize():');
 console.log('First product sizes before - ' + firstProduct.getSizes());
 firstProduct.deleteSize('XXXL');
 console.log('First product sizes after  - ' + firstProduct.getSizes());
 
-// Test addReview()
 console.log('Test addReview():');
 console.log('count reviews before - ' + firstProduct.getReviews().length);
 firstProduct.addReview('4', 'Nina', new Date('2023-10-04T20-50-15'), 'some comment4', setRating(5, 5, 2, 3));
 console.log('count reviews after  - ' + firstProduct.getReviews().length);
 
-// Test deleteReview()
 console.log('deleteReview():');
 console.log('count reviews - ' + firstProduct.getReviews().length);
 firstProduct.deleteReview(REVIEW_ID);
 console.log('count reviews - ' + firstProduct.getReviews().length);
 
-// Test getAveregeRating()
 console.log('Test getAveregeRating():');
 console.log('first product avg rating - ' + firstProduct.getAveregeRating());
 
-// Test searchProducts()
 console.log('Test searchProducts() with "*"');
 console.log(searchProducts(products, 'one*'));
 console.log('Test searchProducts() without "*"');
 console.log(searchProducts(products, 'one'));
 
-// Test sortProducts()
 console.log('Test sortProducts():');
 for(let sortRule of SORT_RULES){
     console.log(sortRule + ': ');
