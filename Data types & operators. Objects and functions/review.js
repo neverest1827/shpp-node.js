@@ -13,46 +13,48 @@ export function Review(id, author, date, comment, rating){
     this._date = date;
     this._comment = comment;
     this._rating = rating;
+} 
 
+Object.assign(Review.prototype, {
     // Getters and setters
 
-    this.setId = function(newId){
+    setId(newId){
         this._id = newId;
-    }
+    },
 
-    this.getId = function(){
+    getId(){
         return this._id;
-    }
+    },
 
-    this.setAuthor = function(newAuthor){
+    setAuthor(newAuthor){
         this._author = newAuthor;
-    }
+    },
 
-    this.getAuthor = function(){
+    getAuthor(){
         return this._author;
-    }
+    },
 
-    this.setDate = function(newDate){
+    setDate(newDate){
         this._date = newDate;
-    }
+    },
 
-    this.getDate = function(){
+    getDate(){
         return this._date;
-    }
+    },
 
-    this.setComment = function(newComment){
+    setComment(newComment){
         this._comment = newComment;
-    }
+    },
 
-    this.getComment = function(){
+    getComment(){
         return this._comment;
-    }
+    },
 
-    this.setRating = function(newRating){
+    setRating(newRating){
         this._rating = newRating;
-    }
+    },
 
-    this.getRating = function(){
+    getRating(){
         return this._rating;
     }
-} 
+})
