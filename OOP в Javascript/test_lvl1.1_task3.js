@@ -128,7 +128,7 @@ const ELECTRONICS_TEST_ARRAY = [
     ),
 ]
 
-// Test clothes methods
+console.log(`${NEXT_ROW}___________Test clothing methods__________${NEXT_ROW}`); 
 const testClothingProduct = CLOTHES_TEST_ARRAY[0];
 
 console.log('Test getReviewByID():');
@@ -188,8 +188,10 @@ console.log(`Current name - ${testClothingProduct.handleField('name')}`);
 testClothingProduct.handleField('name', 'newName');
 console.log(`Changed name - ${testClothingProduct.handleField('name')}`);
 
-console.log('_____________________________');
-// Test electronic methods
+
+console.log(`${NEXT_ROW}___________Test electronic methods__________${NEXT_ROW}`); 
+
+
 const testElectronicProduct = ELECTRONICS_TEST_ARRAY[0];
 
 console.log(`${NEXT_ROW}Test getReviewByID():`);
@@ -230,7 +232,7 @@ for(let sortRule of SORT_RULES){
 console.log(`${NEXT_ROW}Test getFullInformation():`);
 console.log(testElectronicProduct.getFullInformation());
 
-console.log(`${NEXT_ROW}Test getFullInformation():`);
+console.log(`${NEXT_ROW}Test getPriceForQuantity():`);
 let countElectronicProduct = testElectronicProduct.getQuantity();
 console.log(`${countElectronicProduct} units of the product cost - ${testElectronicProduct.getPriceForQuantity(countElectronicProduct)}`);
 
