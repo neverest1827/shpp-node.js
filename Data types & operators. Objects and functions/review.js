@@ -1,3 +1,5 @@
+"use strict"
+
 /**
  * Constructor for creating a review object
  * 

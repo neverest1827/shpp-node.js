@@ -1,3 +1,5 @@
+"use strict"
+
 import { Review } from "./Review.js";
 
 /**
