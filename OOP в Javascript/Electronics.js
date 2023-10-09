@@ -12,7 +12,7 @@ import { AbstractProduct } from "./AbstractProduct.js";
  * @param {number} quantity the number of available electronic
  * @param {object[]} reviews the electronic reviews
  * @param {string[]} images the electronic images
- * @param {Date} date the date of creation of the electronic card
+ * @param {object} date the date of creation of the electronic card
  * @param {string} brand the electronic brand
  * @param {number} warranty the number of years of warranty
  * @param {string} power the power of the electronic device

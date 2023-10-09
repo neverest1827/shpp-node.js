@@ -13,7 +13,7 @@ import { Review } from "./Review.js";
  * @param {string[]} sizes the product sizes
  * @param {string} activeSize the product active size
  * @param {number} quantity the quantity of products available
- * @param {Date} date the date of creation of the product card
+ * @param {object} date the date of creation of the product card
  * @param {object[]} reviews the product reviews
  * @param {string[]} images the product images
  */

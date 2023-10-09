@@ -12,7 +12,7 @@ import { AbstractProduct } from "./AbstractProduct.js";
  * @param {number} quantity the number of available clothes
  * @param {object[]} reviews the clothing reviews
  * @param {string[]} images the clothing images
- * @param {Date} date the date of creation of the clothing card
+ * @param {object} date the date of creation of the clothing card
  * @param {string} brand the clothing brand
  * @param {string} material the material from which the clothes were made
  * @param {string} color is the color of clothing

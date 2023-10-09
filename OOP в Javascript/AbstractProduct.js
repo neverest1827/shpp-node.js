@@ -13,7 +13,7 @@ import { Review } from "../Data types & operators. Objects and functions/Review.
  * @param {number} quantity the number of available product
  * @param {object[]} reviews the product reviews
  * @param {string[]} images the product images
- * @param {Date} date the date of creation of the product card
+ * @param {object} date the date of creation of the product card
  * @param {string} brand the product brand
  */
 export function AbstractProduct(id, name, description, price, quantity, reviews, images, date, brand){

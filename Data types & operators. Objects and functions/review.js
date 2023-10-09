@@ -5,7 +5,7 @@
  * 
  * @param {string} id the review key
  * @param {string} author the review author
- * @param {Date} date the date of creation of the review
+ * @param {object} date the date of creation of the review
  * @param {string} comment the review text
  * @param {object[]} rating the product rating
  */
