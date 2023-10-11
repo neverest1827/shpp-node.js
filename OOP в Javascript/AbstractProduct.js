@@ -186,7 +186,7 @@ Object.assign(AbstractProduct.prototype, {
 
         for(let key in this){
             if (this.hasOwnProperty(key)) {
-                result += `${key} : ${this[key]}\n`;
+                result += `${key.substring(1)} : ${this[key]}\n`;
             }
         }
         
@@ -218,10 +218,9 @@ Object.assign(AbstractProduct.prototype, {
                     this[key] = newValue;
                     return true;
                 } else {
-                    return this[key]
+                    return this[key];
                 }
             }
         }
     }
-    
 })
